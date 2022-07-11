@@ -1598,7 +1598,12 @@ input.error {
 
 .benefits__item {
   width: 100%;
-  max-width: 185px;
+  max-width: 33.33333%;
+  display: none;
+}
+
+.benefits__item--active {
+  display: block;
 }
 
 .benefits-arrows {
@@ -1676,5 +1681,12 @@ input.error {
   .benefits-wrap {
     width: 100%;
     max-width: 576px;
+  }
+}
+
+@media (max-width: 576px){
+  .benefits__item {
+    flex: 0 0 100%; 
+    max-width: 100%;
   }
 }
