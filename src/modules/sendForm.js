@@ -42,7 +42,7 @@ export const sendForm = () => {
             },
             body: JSON.stringify(user)
         }).then(res => res.json());
-    }
+    };
 
     const formCheck = (form, name, phone) => {
         let user = {

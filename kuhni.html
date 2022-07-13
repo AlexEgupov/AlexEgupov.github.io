@@ -119,7 +119,7 @@
                 <div class="button">
                   <a
                     href="#callback"
-                    class="btn btn-warning btn-block fancyboxModal"
+                    class="btn btn-warning btn-header btn-block fancyboxModal"
                     ><i class="phone-icon"></i> Заказать звонок!</a
                   >
                 </div>
@@ -214,51 +214,39 @@
           <h2 class="heading"><span>Выгоды</span> для клиентов</h2>
         </div>
         <div class="benefits-inner">
-          <div class="benefits-wrap">
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/4.png" alt="" />
-              </p>
-              <p class="benefit-title">Рассрочка без банка</p>
-            </div>
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/2.png" alt="" />
-              </p>
-              <p class="benefit-title">Гарантии от 3 до 10 лет</p>
-            </div>
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/3.png" alt="" />
-              </p>
-              <p class="benefit-title">Индивидуальный подход</p>
-            </div>
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/1.png" alt="" />
-              </p>
-              <p class="benefit-title">Бесплатные консультации</p>
-            </div>
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/5.png" alt="" />
-              </p>
-              <p class="benefit-title">Бесплатный выезд мастера на дом</p>
-            </div>
-            <div class="benefits__item">
-              <p class="benefit-image">
-                <img src="images/benefits/6.png" alt="" />
-              </p>
-              <p class="benefit-title">Окна от лучших производителей</p>
-            </div>
-          </div>
+				<div class="benefits-wrap">
+					<div class="benefits__item benefits__item--active">
+						<p class="benefit-image"><img src="images/benefits/4.png" alt=""></p>
+						<p class="benefit-title">Рассрочка без банка </p>
+					</div>
+					<div class="benefits__item benefits__item--active">
+						<p class="benefit-image"><img src="images/benefits/2.png" alt=""></p>
+						<p class="benefit-title">Гарантии от 3 до 10 лет</p>
+					</div>
+					<div class="benefits__item benefits__item--active">
+						<p class="benefit-image"><img src="images/benefits/3.png" alt=""></p>
+						<p class="benefit-title">Индивидуальный подход</p>
+					</div>
+					<div class="benefits__item">
+						<p class="benefit-image"><img src="images/benefits/1.png" alt=""></p>
+						<p class="benefit-title">Бесплатные консультации</p>
+					</div>
+					<div class="benefits__item">
+						<p class="benefit-image"><img src="images/benefits/5.png" alt=""></p>
+						<p class="benefit-title">Бесплатный выезд мастера на дом</p>
+					</div>
+					<div class="benefits__item">
+						<p class="benefit-image"><img src="images/benefits/6.png" alt=""></p>
+						<p class="benefit-title">Окна от лучших производителей</p>
+					</div>
+				</div>
         </div>
         <div class="benefits-arrows">
           <div class="benefits__arrow benefits__arrow--left">
-            <img src="images/benefits/left-arrow.svg" alt="" />
+            <img src="images/benefits/left-arrow.svg" alt="" class="arrow-left">
           </div>
           <div class="benefits__arrow benefits__arrow--right">
-            <img src="images/benefits/right-arrow.svg" alt="" />
+            <img src="images/benefits/right-arrow.svg" alt="" class="arrow-right">
           </div>
         </div>
       </div>
@@ -610,10 +598,18 @@
               <div class="countdown" data-days="7">
 							<div class="countdown-text">До конца акции осталось:
 								<div class="count-wrap">
-									<div class="count count_1">Дней:</br> <span>01</span></div>
-									<div class="count count_2">Часов:</br> <span>02</span></div>
-									<div class="count count_3">Минут:</br> <span>03</span></div>
-									<div class="count count_4">Секунд:</br> <span>04</span></div>
+									<div class="count count_1">
+										<span class="daysWord count_1" style="font-size: 14px;">Дней:</span></br> 
+										<span class="days">01</span></div>
+									<div class="count count_2">
+										<span class="hoursWord" style="font-size: 14px;">Часов:</span></br> 
+										<span class="hours">02</span></div>
+									<div class="count count_3">
+										<span class="minutesWord" style="font-size: 14px;">Минут:</span></br> 
+										<span class="minutes">03</span></div>
+									<div class="count count_4">
+										<span class="secondsWord" style="font-size: 14px;">Секунд:</span></br> 
+										<span class="seconds">04</span></div>
 								</div>
 							</div>
 						</div>
@@ -628,7 +624,7 @@
                       <input
                         type="text"
                         name="fio"
-                        class="form-control required"
+                        class="form-control nameInput required"
                         placeholder="ваше имя"
                       />
                     </div>
@@ -638,7 +634,7 @@
                       <input
                         type="text"
                         name="phone"
-                        class="form-control required"
+                        class="form-control phoneInput required"
                         placeholder="ваш телефон"
                         data-mask="+7 (999) 999-99-99"
                       />
@@ -892,10 +888,18 @@
               <div class="countdown" data-days="7">
 							<div class="countdown-text">До конца акции осталось:
 								<div class="count-wrap">
-									<div class="count count_1">Дней:</br> <span>01</span></div>
-									<div class="count count_2">Часов:</br> <span>02</span></div>
-									<div class="count count_3">Минут:</br> <span>03</span></div>
-									<div class="count count_4">Секунд:</br> <span>04</span></div>
+									<div class="count count_1">
+										<span class="daysWord count_1" style="font-size: 14px;">Дней:</span></br> 
+										<span class="days">01</span></div>
+									<div class="count count_2">
+										<span class="hoursWord" style="font-size: 14px;">Часов:</span></br> 
+										<span class="hours">02</span></div>
+									<div class="count count_3">
+										<span class="minutesWord" style="font-size: 14px;">Минут:</span></br> 
+										<span class="minutes">03</span></div>
+									<div class="count count_4">
+										<span class="secondsWord" style="font-size: 14px;">Секунд:</span></br> 
+										<span class="seconds">04</span></div>
 								</div>
 							</div>
 						</div>
@@ -910,7 +914,7 @@
                       <input
                         type="text"
                         name="fio"
-                        class="form-control required"
+                        class="form-control nameInput required"
                         placeholder="ваше имя"
                       />
                     </div>
@@ -920,7 +924,7 @@
                       <input
                         type="text"
                         name="phone"
-                        class="form-control required"
+                        class="form-control phoneInput required"
                         placeholder="ваш телефон"
                         data-mask="+7 (999) 999-99-99"
                       />
