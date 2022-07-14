@@ -1,8 +1,8 @@
 export const slider = () => {
-    const arrows = document.querySelector('.benefits-arrows');
+    const benefitsArrows = document.querySelector('.benefits-arrows');
     const benefitsItems = document.querySelectorAll('.benefits__item');
-
-    let currentSlide = 0;
+    const servicesArrows = document.querySelector('.services-arrows');
+    const serviceItems = document.querySelectorAll('.service-block');
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
@@ -12,41 +12,69 @@ export const slider = () => {
         elems[index].classList.add(strClass);
     };
 
-    if (document.body.clientWidth < 576) {
-        benefitsItems.forEach(item => {
-            item.classList.remove('benefits__item--active');
-        });
-        benefitsItems[0].classList.add('benefits__item--active');
-    }
-
-    arrows.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        if (e.target.matches('.arrow-right') || e.target.matches('.arrow-left')) {
-            if (document.body.clientWidth > 576) {
-                benefitsItems.forEach(item => {
-                    item.classList.toggle('benefits__item--active');
+    const lowWidth = (items, classActive) => {
+        window.addEventListener('resize', () => {
+            if (document.body.clientWidth < 576) {
+                items.forEach(item => {
+                    item.classList.remove(classActive);
                 });
-            } else if (document.body.clientWidth < 576) {
-                prevSlide(benefitsItems, currentSlide, 'benefits__item--active');
-
-                if (e.target.matches('.arrow-right')) {
-                    currentSlide++;
-                } else if (e.target.matches('.arrow-left')) {
-                    currentSlide--;
+                items[0].classList.add(classActive);
+            } else if (document.body.clientWidth > 576) {
+                if (items.length === 6) {
+                    items.forEach(item => {
+                        item.classList.remove(classActive);
+                    });
+                    items[0].classList.add(classActive);
+                    items[1].classList.add(classActive);
+                    items[2].classList.add(classActive);
+                } else if (items.length === 4) {
+                    items.forEach(item => {
+                        item.classList.remove(classActive);
+                    });
+                    items[0].classList.add(classActive);
+                    items[1].classList.add(classActive);
                 }
-
-                if (currentSlide >= benefitsItems.length) {
-                    currentSlide = 0;
-                }
-
-                if (currentSlide < 0) {
-                    currentSlide = benefitsItems.length - 1;
-                }
-
-                nextSlide(benefitsItems, currentSlide, 'benefits__item--active');
             }
-        }
+        });
+    };
 
-    });
+    const listener = (arrowsBlock, classLeft, classRight, items, classActive) => {
+        let currentSlide = 0;
+        arrowsBlock.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (e.target.matches(classRight) || e.target.matches(classLeft)) {
+                if (document.body.clientWidth > 576) {
+                    items.forEach(item => {
+                        item.classList.toggle(classActive);
+                    });
+                } else if (document.body.clientWidth < 576) {
+                    prevSlide(items, currentSlide, classActive);
+
+                    if (e.target.matches(classRight)) {
+                        currentSlide++;
+                    } else if (e.target.matches(classLeft)) {
+                        currentSlide--;
+                    }
+
+                    if (currentSlide >= items.length) {
+                        currentSlide = 0;
+                    }
+
+                    if (currentSlide < 0) {
+                        currentSlide = items.length - 1;
+                    }
+
+                    nextSlide(items, currentSlide, classActive);
+                }
+            }
+
+        });
+    };
+
+    lowWidth(benefitsItems, 'benefits__item--active');
+    lowWidth(serviceItems, 'service-block--active');
+
+    listener(benefitsArrows, '.arrow-left', '.arrow-right', benefitsItems, 'benefits__item--active');
+    listener(servicesArrows, '.arrow-left', '.arrow-right', serviceItems, 'service-block--active');
 };
