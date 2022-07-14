@@ -1673,6 +1673,29 @@ input.error {
   bottom: 25px;
   transform: rotate(90deg);
 }
+.img-modal {
+  display: none;
+}
+.img-modal--opened {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.modal-img{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+.img-modal__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 36px;
+  cursor: pointer;
+}
 
 @media (min-width: 576px) {
   .benefits-wrap {
