@@ -7,7 +7,7 @@ import { calc } from "./modules/calc";
 
 slider();
 modal();
-// timer('16 jule 2022');
-sendForm();
+timer('16 jule 2022');
+sendForm(document.getElementById('calc-total'));
 smoothScroll();
 calc();

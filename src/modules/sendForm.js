@@ -1,4 +1,4 @@
-export const sendForm = () => {
+export const sendForm = (someElem) => {
     const forms = document.querySelectorAll('.form-horizontal');
     let nameInputs = document.querySelectorAll('.nameInput');
     let phoneInputs = document.querySelectorAll('.phoneInput');
@@ -47,7 +47,8 @@ export const sendForm = () => {
     const formCheck = (form, name, phone) => {
         let user = {
             name: name.value,
-            phone: phone.value
+            phone: phone.value,
+            count: someElem.value
         };
 
         if (name.value === '' || phone.value === '') {
