@@ -27,7 +27,9 @@ export const calc = () => {
 
     const selectListeners = (select) => {
         select.addEventListener('change', () => {
-            countCalc();
+            if (!isNaN(+select.options[select.selectedIndex].value) && calcInput.value > 0) {
+                countCalc();
+            }
         });
     };
 
@@ -37,7 +39,10 @@ export const calc = () => {
     calcInput.addEventListener('input', () => {
         calcInput.value = calcInput.value.replace(/\D/g, '');
 
-        countCalc();
+        if (!isNaN(+calcType.options[calcType.selectedIndex].value) || !isNaN(+calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value)) {
+            countCalc();
+        }
+
     });
 
     selectListeners(calcType);
