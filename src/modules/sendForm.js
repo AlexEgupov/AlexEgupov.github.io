@@ -26,7 +26,7 @@ export const sendForm = () => {
                     e.target.value = e.target.value.replace(/( |^)[а-яёa-z]/ig, (w) => { return w.toUpperCase(); });
                 }
             });
-        })
+        });
 
 
     };
