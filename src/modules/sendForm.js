@@ -1,5 +1,8 @@
 export const sendForm = (someElem) => {
     const forms = document.querySelectorAll('.form-horizontal');
+    const statusBlock = document.createElement('div');
+    const successText = 'Спасибо! Наш менеджер с вами свяжется!';
+
     let nameInputs = document.querySelectorAll('.nameInput');
     let phoneInputs = document.querySelectorAll('.phoneInput');
 
@@ -37,10 +40,10 @@ export const sendForm = (someElem) => {
     const sendData = (user) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
+            body: JSON.stringify(user),
             headers: {
                 "Content-type": "application/json",
-            },
-            body: JSON.stringify(user)
+            }
         }).then(res => res.json());
     };
 
@@ -48,14 +51,37 @@ export const sendForm = (someElem) => {
         let user = {
             name: name.value,
             phone: phone.value,
-            count: someElem.value
+            count: someElem !== null ? someElem.value : 0
         };
+
+        statusBlock.style.cssText = `width: 50px; height: 50px; margin: auto;
+        background-color: #5d5d5d;
+        animation:  infinite ease-in-out;`;
+        let animation = statusBlock.animate([
+
+            { transform: 'perspective(120px) rotateX(0deg) rotateY(0deg)' },
+            { transform: 'perspective(120px) rotateX(-180.1deg) rotateY(0deg)' },
+            { transform: 'perspective(120px) rotateX(-180deg) rotateY(-179.9deg)' }
+
+        ], {
+            duration: 1000,
+            iterations: Infinity
+        });
+        form.append(statusBlock);
 
         if (name.value === '' || phone.value === '') {
             alert('Нельзя отправить пустую форму!');
             return;
         } else {
-            sendData(user);
+            sendData(user).then(data => {
+                animation.cancel();
+                statusBlock.style.cssText = `color: #5d5d5d`;
+                statusBlock.textContent = successText;
+
+                setTimeout(() => {
+                    statusBlock.textContent = '';
+                }, 3000);
+            })
             form.reset();
         }
     };
