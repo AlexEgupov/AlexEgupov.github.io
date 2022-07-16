@@ -1,5 +1,7 @@
 export const sendForm = (someElem) => {
     const forms = document.querySelectorAll('.form-horizontal');
+    const headerForm = document.querySelector('.header-form');
+    const servicesForm = document.querySelector('.services-form');
     const statusBlock = document.createElement('div');
     const successText = 'Спасибо! Наш менеджер с вами свяжется!';
 
@@ -95,5 +97,7 @@ export const sendForm = (someElem) => {
 
     submit(forms[0], nameInputs[0], phoneInputs[0]);
     submit(forms[1], nameInputs[1], phoneInputs[1]);
+    submit(headerForm, nameInputs[2], phoneInputs[2]);
+    submit(servicesForm, nameInputs[3], phoneInputs[3]);
 
 };
