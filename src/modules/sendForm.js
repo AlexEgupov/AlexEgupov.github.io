@@ -56,25 +56,24 @@ export const sendForm = (someElem) => {
             count: someElem !== null ? someElem.value : 0
         };
 
-        statusBlock.style.cssText = `width: 50px; height: 50px; margin: auto;
-        background-color: #5d5d5d;
-        animation:  infinite ease-in-out;`;
-        let animation = statusBlock.animate([
-
-            { transform: 'perspective(120px) rotateX(0deg) rotateY(0deg)' },
-            { transform: 'perspective(120px) rotateX(-180.1deg) rotateY(0deg)' },
-            { transform: 'perspective(120px) rotateX(-180deg) rotateY(-179.9deg)' }
-
-        ], {
-            duration: 1000,
-            iterations: Infinity
-        });
-        form.append(statusBlock);
-
         if (name.value === '' || phone.value === '') {
             alert('Нельзя отправить пустую форму!');
             return;
         } else {
+            statusBlock.style.cssText = `width: 50px; height: 50px; margin: auto;
+                background-color: #5d5d5d;
+                animation:  infinite ease-in-out;`;
+            let animation = statusBlock.animate([
+
+                { transform: 'perspective(120px) rotateX(0deg) rotateY(0deg)' },
+                { transform: 'perspective(120px) rotateX(-180.1deg) rotateY(0deg)' },
+                { transform: 'perspective(120px) rotateX(-180deg) rotateY(-179.9deg)' }
+
+            ], {
+                duration: 1000,
+                iterations: Infinity
+            });
+            form.append(statusBlock);
             sendData(user).then(data => {
                 animation.cancel();
                 statusBlock.style.cssText = `color: #5d5d5d`;
