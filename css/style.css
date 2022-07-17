@@ -535,15 +535,17 @@ input.error {
 #calc {
   background-color: #466a78;
 }
+.services-item {
+  display: none;
+}
+.services-item--active {
+  display: block;
+}
 .service-block {
   position: relative;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin: 30px 20px 30px;
-  display: none;
-}
-.service-block--active {
-  display: block;
 }
 .service-image img {
   border-top-left-radius: 10px;

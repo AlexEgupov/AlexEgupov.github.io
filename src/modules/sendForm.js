@@ -83,7 +83,7 @@ export const sendForm = (someElem) => {
                 setTimeout(() => {
                     statusBlock.textContent = '';
                 }, 3000);
-            })
+            });
             form.reset();
         }
     };
